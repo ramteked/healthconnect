@@ -1,0 +1,33 @@
+# Java
+*.class
+*.jar
+*.war
+target/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.project
+.classpath
+.settings/
+
+# Mac
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Build outputs
+dist/
+build/
+
+# Local configuration
+application-local.yml
+application-local.properties

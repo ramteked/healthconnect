@@ -1,0 +1,20 @@
+services:
+  healthconnect-postgres:
+    image: postgres:16-alpine
+    container_name: healthconnect-postgres
+    environment:
+      POSTGRES_DB: healthconnect
+      POSTGRES_USER: hc_app
+      POSTGRES_PASSWORD: local_dev_only_change_me
+    ports:
+      - "5433:5432"
+    volumes:
+      - healthconnect_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hc_app -d healthconnect"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  healthconnect_pgdata:
